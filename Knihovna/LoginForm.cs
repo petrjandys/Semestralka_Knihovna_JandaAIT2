@@ -6,10 +6,12 @@ namespace Knihovna
     public partial class LoginForm : Form
     {          
         private User user;
+        private DatabaseService databaseService;
 
         public LoginForm()
         {
-            InitializeComponent();            
+            InitializeComponent();  
+            databaseService= new DatabaseService(); 
             user = new User();
         }
 
