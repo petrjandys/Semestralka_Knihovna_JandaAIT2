@@ -9,10 +9,12 @@ namespace Knihovna
         private User user;
 
         public ChangePasswordForm(int userId)
-        {
+        {           
             InitializeComponent();
             this.userId = userId;
-            this.user = new User();
+            this.user = new User();           
+            string username = user.GetUserNameById(userId);         
+            this.labelUser.Text = "Změna hesla uživatele " + username;
         }
 
         private void btnChangePassword_Click(object sender, EventArgs e)

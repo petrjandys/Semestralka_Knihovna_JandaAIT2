@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Knihovna
 {
@@ -38,7 +39,7 @@ namespace Knihovna
             {
                 if (isAdmin && user.HashPassword(password) == databaseService.defaultPass)
                 {
-                    MessageBox.Show("Prosím, změnte heslo pro admina", "Bezpečnost", MessageBoxButtons.OK,MessageBoxIcon.Hand);
+                    MessageBox.Show("Prosím, změnte heslo pro admina", "Bezpečnost", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
                     changePasswordForm.ShowDialog();
                 }
@@ -58,7 +59,10 @@ namespace Knihovna
             }
             else
             {
-                MessageBox.Show("chyba");
+                txtPassword.SelectionStart = 0;
+                txtPassword.SelectionLength = txtPassword.Text.Length;
+                chybaPrihlaseniLabel.Visible = true;           
+                
             }
         }
 

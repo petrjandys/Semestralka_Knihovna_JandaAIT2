@@ -99,5 +99,11 @@ namespace Knihovna
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
             changePasswordForm.ShowDialog();
         }
+
+        private void zmenitHesloClick(object sender, EventArgs e)
+        {
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
+            changePasswordForm.ShowDialog();            
+        }
     }
 }

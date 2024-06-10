@@ -1,9 +1,6 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace Knihovna
+﻿namespace Knihovna
 {
-    public partial class MainForm : Form
+    partial class MainForm
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.TextBox txtTitle;
@@ -18,11 +15,16 @@ namespace Knihovna
         private System.Windows.Forms.Button btnAddUser;
         private System.Windows.Forms.Button btnDeleteUser;
         private System.Windows.Forms.ListBox lstUsers;
-
-        public MainForm()
-        {
-            InitializeComponent();
-        }
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblAuthor;
+        private System.Windows.Forms.Label lblYear;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem odhlásitSeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnChangePassword;
 
         protected override void Dispose(bool disposing)
         {
@@ -48,39 +50,43 @@ namespace Knihovna
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnDeleteUser = new System.Windows.Forms.Button();
             this.lstUsers = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblAuthor = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.odhlásitSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnChangePassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(16, 62);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtTitle.Location = new System.Drawing.Point(22, 58);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(345, 22);
+            this.txtTitle.Size = new System.Drawing.Size(404, 30);
             this.txtTitle.TabIndex = 0;
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(16, 108);
-            this.txtAuthor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAuthor.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtAuthor.Location = new System.Drawing.Point(22, 129);
+            this.txtAuthor.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(345, 22);
+            this.txtAuthor.Size = new System.Drawing.Size(404, 30);
             this.txtAuthor.TabIndex = 1;
             // 
             // numYear
             // 
-            this.numYear.Location = new System.Drawing.Point(16, 140);
-            this.numYear.Margin = new System.Windows.Forms.Padding(4);
+            this.numYear.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.numYear.Location = new System.Drawing.Point(22, 200);
+            this.numYear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.numYear.Maximum = new decimal(new int[] {
             2100,
             0,
@@ -92,7 +98,7 @@ namespace Knihovna
             0,
             0});
             this.numYear.Name = "numYear";
-            this.numYear.Size = new System.Drawing.Size(160, 22);
+            this.numYear.Size = new System.Drawing.Size(160, 30);
             this.numYear.TabIndex = 2;
             this.numYear.Value = new decimal(new int[] {
             2021,
@@ -102,10 +108,14 @@ namespace Knihovna
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(16, 172);
-            this.btnAddBook.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
+            this.btnAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddBook.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddBook.ForeColor = System.Drawing.Color.White;
+            this.btnAddBook.Location = new System.Drawing.Point(22, 250);
+            this.btnAddBook.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(100, 28);
+            this.btnAddBook.Size = new System.Drawing.Size(112, 43);
             this.btnAddBook.TabIndex = 3;
             this.btnAddBook.Text = "Přidat knihu";
             this.btnAddBook.UseVisualStyleBackColor = true;
@@ -113,59 +123,71 @@ namespace Knihovna
             // 
             // lstBooks
             // 
+            this.lstBooks.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lstBooks.FormattingEnabled = true;
-            this.lstBooks.ItemHeight = 16;
-            this.lstBooks.Location = new System.Drawing.Point(16, 207);
-            this.lstBooks.Margin = new System.Windows.Forms.Padding(4);
+            this.lstBooks.ItemHeight = 23;
+            this.lstBooks.Location = new System.Drawing.Point(22, 305);
+            this.lstBooks.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.lstBooks.Name = "lstBooks";
-            this.lstBooks.Size = new System.Drawing.Size(345, 116);
+            this.lstBooks.Size = new System.Drawing.Size(404, 142);
             this.lstBooks.TabIndex = 4;
             // 
             // btnDeleteBook
             // 
-            this.btnDeleteBook.Location = new System.Drawing.Point(16, 332);
-            this.btnDeleteBook.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
+            this.btnDeleteBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteBook.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteBook.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteBook.Location = new System.Drawing.Point(22, 460);
+            this.btnDeleteBook.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDeleteBook.Name = "btnDeleteBook";
-            this.btnDeleteBook.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteBook.Size = new System.Drawing.Size(160, 42);
             this.btnDeleteBook.TabIndex = 5;
             this.btnDeleteBook.Text = "Vymazat knihu";
-            this.btnDeleteBook.UseVisualStyleBackColor = true;
+            this.btnDeleteBook.UseVisualStyleBackColor = false;
             this.btnDeleteBook.Click += new System.EventHandler(this.btnDeleteBook_Click);
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(387, 62);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtUsername.Location = new System.Drawing.Point(458, 58);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(345, 22);
+            this.txtUsername.Size = new System.Drawing.Size(404, 30);
             this.txtUsername.TabIndex = 6;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(387, 108);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtPassword.Location = new System.Drawing.Point(458, 129);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(345, 22);
+            this.txtPassword.Size = new System.Drawing.Size(404, 30);
             this.txtPassword.TabIndex = 7;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // chkIsAdmin
             // 
             this.chkIsAdmin.AutoSize = true;
-            this.chkIsAdmin.Location = new System.Drawing.Point(387, 140);
-            this.chkIsAdmin.Margin = new System.Windows.Forms.Padding(4);
+            this.chkIsAdmin.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.chkIsAdmin.Location = new System.Drawing.Point(458, 171);
+            this.chkIsAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.chkIsAdmin.Name = "chkIsAdmin";
-            this.chkIsAdmin.Size = new System.Drawing.Size(87, 20);
+            this.chkIsAdmin.Size = new System.Drawing.Size(108, 27);
             this.chkIsAdmin.TabIndex = 8;
-            this.chkIsAdmin.Text = "je admin?";
+            this.chkIsAdmin.Text = "Je admin?";
             this.chkIsAdmin.UseVisualStyleBackColor = true;
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(387, 172);
-            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
+            this.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAddUser.ForeColor = System.Drawing.Color.White;
+            this.btnAddUser.Location = new System.Drawing.Point(458, 250);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(100, 28);
+            this.btnAddUser.Size = new System.Drawing.Size(159, 43);
             this.btnAddUser.TabIndex = 9;
             this.btnAddUser.Text = "Přidat uživatele";
             this.btnAddUser.UseVisualStyleBackColor = true;
@@ -173,60 +195,84 @@ namespace Knihovna
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(387, 332);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
+            this.btnDeleteUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeleteUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteUser.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteUser.Location = new System.Drawing.Point(458, 460);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(100, 28);
-            this.btnDeleteUser.TabIndex = 11;
+            this.btnDeleteUser.Size = new System.Drawing.Size(185, 43);
+            this.btnDeleteUser.TabIndex = 10;
             this.btnDeleteUser.Text = "Vymazat uživatele";
-            this.btnDeleteUser.UseVisualStyleBackColor = true;
+            this.btnDeleteUser.UseVisualStyleBackColor = false;
             this.btnDeleteUser.Click += new System.EventHandler(this.btnDeleteUser_Click);
             // 
             // lstUsers
             // 
+            this.lstUsers.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lstUsers.FormattingEnabled = true;
-            this.lstUsers.ItemHeight = 16;
-            this.lstUsers.Location = new System.Drawing.Point(387, 207);
-            this.lstUsers.Margin = new System.Windows.Forms.Padding(4);
+            this.lstUsers.ItemHeight = 23;
+            this.lstUsers.Location = new System.Drawing.Point(458, 305);
+            this.lstUsers.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.lstUsers.Name = "lstUsers";
-            this.lstUsers.Size = new System.Drawing.Size(345, 116);
-            this.lstUsers.TabIndex = 10;
+            this.lstUsers.Size = new System.Drawing.Size(404, 142);
+            this.lstUsers.TabIndex = 11;
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 16);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "název knihy";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblTitle.Location = new System.Drawing.Point(22, 29);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(43, 23);
+            this.lblTitle.TabIndex = 12;
+            this.lblTitle.Text = "Titul";
             // 
-            // label2
+            // lblAuthor
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 16);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "uživatelské jméno";
+            this.lblAuthor.AutoSize = true;
+            this.lblAuthor.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblAuthor.Location = new System.Drawing.Point(22, 101);
+            this.lblAuthor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAuthor.Name = "lblAuthor";
+            this.lblAuthor.Size = new System.Drawing.Size(53, 23);
+            this.lblAuthor.TabIndex = 13;
+            this.lblAuthor.Text = "Autor";
             // 
-            // label3
+            // lblYear
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 16);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "autor";
+            this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblYear.Location = new System.Drawing.Point(22, 171);
+            this.lblYear.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(38, 23);
+            this.lblYear.TabIndex = 14;
+            this.lblYear.Text = "Rok";
             // 
-            // label4
+            // lblUsername
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 88);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 16);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "heslo";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblUsername.Location = new System.Drawing.Point(458, 29);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(147, 23);
+            this.lblUsername.TabIndex = 15;
+            this.lblUsername.Text = "Uživatelské jméno";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblPassword.Location = new System.Drawing.Point(458, 101);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(52, 23);
+            this.lblPassword.TabIndex = 16;
+            this.lblPassword.Text = "Heslo";
             // 
             // menuStrip1
             // 
@@ -236,8 +282,8 @@ namespace Knihovna
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(779, 30);
-            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Size = new System.Drawing.Size(900, 28);
+            this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // odhlásitSeToolStripMenuItem
@@ -260,28 +306,35 @@ namespace Knihovna
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // button1
+            // btnChangePassword
             // 
-            this.button1.Location = new System.Drawing.Point(495, 331);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Změnit heslo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnChangePassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(126)))), ((int)(((byte)(176)))));
+            this.btnChangePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangePassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnChangePassword.ForeColor = System.Drawing.Color.White;
+            this.btnChangePassword.Location = new System.Drawing.Point(712, 459);
+            this.btnChangePassword.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnChangePassword.Name = "btnChangePassword";
+            this.btnChangePassword.Size = new System.Drawing.Size(150, 43);
+            this.btnChangePassword.TabIndex = 18;
+            this.btnChangePassword.Text = "Změnit heslo";
+            this.btnChangePassword.UseVisualStyleBackColor = false;
+            this.btnChangePassword.Click += new System.EventHandler(this.ZmenitHesloClick);
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 371);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnDeleteUser);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(900, 517);
+            this.Controls.Add(this.btnChangePassword);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblYear);
+            this.Controls.Add(this.lblAuthor);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lstUsers);
+            this.Controls.Add(this.btnDeleteUser);
             this.Controls.Add(this.btnAddUser);
             this.Controls.Add(this.chkIsAdmin);
             this.Controls.Add(this.txtPassword);
@@ -293,10 +346,11 @@ namespace Knihovna
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "MainForm";
-            this.Text = "Sprácovské okno";
+            this.Text = "Main Form";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).EndInit();
             this.menuStrip1.ResumeLayout(false);
@@ -305,15 +359,5 @@ namespace Knihovna
             this.PerformLayout();
 
         }
-
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem odhlásitSeToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
-        private ContextMenuStrip contextMenuStrip1;
-        private Button button1;
     }
 }

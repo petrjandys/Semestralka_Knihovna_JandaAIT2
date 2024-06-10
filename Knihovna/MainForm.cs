@@ -18,21 +18,8 @@ namespace Knihovna
             user = new User();
             book = new Book();
             LoadBooks();
-            LoadUsers();
-            SetupUI();
+            LoadUsers();            
         }
-
-        private void SetupUI()
-        {
-            if (!isAdmin)
-            {
-                btnAddBook.Visible = false;
-                btnDeleteBook.Visible = false;
-                btnAddUser.Visible = false;
-                btnDeleteUser.Visible = false;
-            }
-        }
-
         private void btnAddBook_Click(object sender, EventArgs e)
         {
             string title = txtTitle.Text;
@@ -136,5 +123,13 @@ namespace Knihovna
             login.Show();
             this.Hide();
         }
+        private void ZmenitHesloClick(object sender, EventArgs e)
+        { 
+            User selectedUser = user.GetAllUsers()[lstUsers.SelectedIndex];
+            int selectedUserId = selectedUser.Id;
+            ChangePasswordForm changePasswordForm = new ChangePasswordForm(selectedUserId);
+            changePasswordForm.ShowDialog();
+        }
+
     }
 }

@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2.1.0
+
+- designové úpravy
+- admin může změnit heslo uživatelům
+
 ## 2.0.0
 
 - přidán menustrip, zavírání, odhlášení

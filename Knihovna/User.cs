@@ -105,7 +105,25 @@ namespace Knihovna
                 }
             }
         }
-
+        public string GetUserNameById(int userId)
+        {
+            string username = "";
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT Username FROM Users WHERE Id = @Id";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Id", userId);
+                    var result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        username = result.ToString();
+                    }
+                }
+            }
+            return username;
+        }
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();
