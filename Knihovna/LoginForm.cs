@@ -4,14 +4,14 @@ using System.Windows.Forms;
 namespace Knihovna
 {
     public partial class LoginForm : Form
-    {          
+    {
         private User user;
         private DatabaseService databaseService;
 
         public LoginForm()
         {
-            InitializeComponent();  
-            databaseService= new DatabaseService(); 
+            InitializeComponent();
+            databaseService = new DatabaseService();
             user = new User();
         }
 
@@ -36,6 +36,13 @@ namespace Knihovna
 
             if (user.ValidateUser(username, password, out bool isAdmin, out int userId))
             {
+                if (isAdmin && user.HashPassword(password) == databaseService.defaultPass)
+                {
+                    MessageBox.Show("Prosím, změnte heslo pro admina", "Bezpečnost", MessageBoxButtons.OK,MessageBoxIcon.Hand);
+                    ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
+                    changePasswordForm.ShowDialog();
+                }
+
                 if (isAdmin)
                 {
                     MainForm mainForm = new MainForm(isAdmin);

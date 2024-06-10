@@ -56,6 +56,7 @@ namespace Knihovna
             this.odhlásitSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -214,9 +215,9 @@ namespace Knihovna
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 88);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 16);
+            this.label3.Size = new System.Drawing.Size(37, 16);
             this.label3.TabIndex = 14;
-            this.label3.Text = "rok vydání";
+            this.label3.Text = "autor";
             // 
             // label4
             // 
@@ -235,7 +236,7 @@ namespace Knihovna
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(779, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(779, 30);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -259,11 +260,22 @@ namespace Knihovna
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(495, 331);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Změnit heslo";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 371);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -302,5 +314,6 @@ namespace Knihovna
         private ToolStripMenuItem odhlásitSeToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ContextMenuStrip contextMenuStrip1;
+        private Button button1;
     }
 }

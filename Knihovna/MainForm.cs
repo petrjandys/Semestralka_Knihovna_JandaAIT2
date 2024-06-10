@@ -18,6 +18,7 @@ namespace Knihovna
             user = new User();
             book = new Book();
             LoadBooks();
+            LoadUsers();
             SetupUI();
         }
 

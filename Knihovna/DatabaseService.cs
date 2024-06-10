@@ -6,6 +6,7 @@ namespace Knihovna
     public class DatabaseService
     {
         private string connectionString = "Data Source=library.db;Version=3;";
+        public string defaultPass = "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
 
         public DatabaseService()
         {
@@ -50,7 +51,7 @@ namespace Knihovna
                 ExecuteNonQuery(createBooksTable, connection);
                 ExecuteNonQuery(createLoansTable, connection);
 
-                string checkAdminUser = "SELECT COUNT(*) FROM Users WHERE Username = 'admin' AND Password = 'admin'";
+                string checkAdminUser = "SELECT COUNT(*) FROM Users WHERE Username = 'admin'";
                 using (var command = new SQLiteCommand(checkAdminUser, connection))
                 {
                     long count = (long)command.ExecuteScalar();
@@ -58,7 +59,7 @@ namespace Knihovna
                     {
                         string insertAdminUser = @"
                             INSERT INTO Users (Username, Password, IsAdmin)
-                            VALUES ('admin', 'admin', 1)";
+                            VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1)";
                         ExecuteNonQuery(insertAdminUser, connection);
                     }
                 }

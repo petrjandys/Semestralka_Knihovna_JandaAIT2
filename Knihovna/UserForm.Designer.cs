@@ -25,9 +25,9 @@
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.nastaveníÚčtuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.změnitHesloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zpětToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,18 +94,12 @@
             this.nastaveníÚčtuToolStripMenuItem.Size = new System.Drawing.Size(120, 24);
             this.nastaveníÚčtuToolStripMenuItem.Text = "Nastavení účtu";
             // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
-            // 
             // změnitHesloToolStripMenuItem
             // 
             this.změnitHesloToolStripMenuItem.Name = "změnitHesloToolStripMenuItem";
             this.změnitHesloToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.změnitHesloToolStripMenuItem.Text = "Změnit heslo";
+            this.změnitHesloToolStripMenuItem.Click += new System.EventHandler(this.zmenitHeslo_click);
             // 
             // zpětToolStripMenuItem
             // 
@@ -113,6 +107,13 @@
             this.zpětToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
             this.zpětToolStripMenuItem.Text = "Odhlásit se";
             this.zpětToolStripMenuItem.Click += new System.EventHandler(this.zpetToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // UserForm
             // 
