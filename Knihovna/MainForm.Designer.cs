@@ -35,6 +35,7 @@ namespace Knihovna
 
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.numYear = new System.Windows.Forms.NumericUpDown();
@@ -51,29 +52,34 @@ namespace Knihovna
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.odhlásitSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(16, 27);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTitle.Location = new System.Drawing.Point(16, 62);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(345, 22);
             this.txtTitle.TabIndex = 0;
             // 
             // txtAuthor
             // 
-            this.txtAuthor.Location = new System.Drawing.Point(16, 73);
-            this.txtAuthor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAuthor.Location = new System.Drawing.Point(16, 108);
+            this.txtAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(345, 22);
             this.txtAuthor.TabIndex = 1;
             // 
             // numYear
             // 
-            this.numYear.Location = new System.Drawing.Point(16, 105);
-            this.numYear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numYear.Location = new System.Drawing.Point(16, 140);
+            this.numYear.Margin = new System.Windows.Forms.Padding(4);
             this.numYear.Maximum = new decimal(new int[] {
             2100,
             0,
@@ -95,8 +101,8 @@ namespace Knihovna
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(16, 137);
-            this.btnAddBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddBook.Location = new System.Drawing.Point(16, 172);
+            this.btnAddBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddBook.Name = "btnAddBook";
             this.btnAddBook.Size = new System.Drawing.Size(100, 28);
             this.btnAddBook.TabIndex = 3;
@@ -108,16 +114,16 @@ namespace Knihovna
             // 
             this.lstBooks.FormattingEnabled = true;
             this.lstBooks.ItemHeight = 16;
-            this.lstBooks.Location = new System.Drawing.Point(16, 172);
-            this.lstBooks.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstBooks.Location = new System.Drawing.Point(16, 207);
+            this.lstBooks.Margin = new System.Windows.Forms.Padding(4);
             this.lstBooks.Name = "lstBooks";
             this.lstBooks.Size = new System.Drawing.Size(345, 116);
             this.lstBooks.TabIndex = 4;
             // 
             // btnDeleteBook
             // 
-            this.btnDeleteBook.Location = new System.Drawing.Point(16, 297);
-            this.btnDeleteBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteBook.Location = new System.Drawing.Point(16, 332);
+            this.btnDeleteBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteBook.Name = "btnDeleteBook";
             this.btnDeleteBook.Size = new System.Drawing.Size(100, 28);
             this.btnDeleteBook.TabIndex = 5;
@@ -127,16 +133,16 @@ namespace Knihovna
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(387, 27);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUsername.Location = new System.Drawing.Point(387, 62);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(345, 22);
             this.txtUsername.TabIndex = 6;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(387, 73);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPassword.Location = new System.Drawing.Point(387, 108);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(345, 22);
             this.txtPassword.TabIndex = 7;
@@ -145,8 +151,8 @@ namespace Knihovna
             // chkIsAdmin
             // 
             this.chkIsAdmin.AutoSize = true;
-            this.chkIsAdmin.Location = new System.Drawing.Point(387, 105);
-            this.chkIsAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkIsAdmin.Location = new System.Drawing.Point(387, 140);
+            this.chkIsAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.chkIsAdmin.Name = "chkIsAdmin";
             this.chkIsAdmin.Size = new System.Drawing.Size(87, 20);
             this.chkIsAdmin.TabIndex = 8;
@@ -155,8 +161,8 @@ namespace Knihovna
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(387, 137);
-            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddUser.Location = new System.Drawing.Point(387, 172);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(100, 28);
             this.btnAddUser.TabIndex = 9;
@@ -166,8 +172,8 @@ namespace Knihovna
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(387, 297);
-            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteUser.Location = new System.Drawing.Point(387, 332);
+            this.btnDeleteUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteUser.Name = "btnDeleteUser";
             this.btnDeleteUser.Size = new System.Drawing.Size(100, 28);
             this.btnDeleteUser.TabIndex = 11;
@@ -179,8 +185,8 @@ namespace Knihovna
             // 
             this.lstUsers.FormattingEnabled = true;
             this.lstUsers.ItemHeight = 16;
-            this.lstUsers.Location = new System.Drawing.Point(387, 172);
-            this.lstUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstUsers.Location = new System.Drawing.Point(387, 207);
+            this.lstUsers.Margin = new System.Windows.Forms.Padding(4);
             this.lstUsers.Name = "lstUsers";
             this.lstUsers.Size = new System.Drawing.Size(345, 116);
             this.lstUsers.TabIndex = 10;
@@ -188,7 +194,7 @@ namespace Knihovna
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Location = new System.Drawing.Point(13, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 16);
             this.label1.TabIndex = 12;
@@ -197,7 +203,7 @@ namespace Knihovna
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(384, 7);
+            this.label2.Location = new System.Drawing.Point(384, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 16);
             this.label2.TabIndex = 13;
@@ -206,7 +212,7 @@ namespace Knihovna
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 53);
+            this.label3.Location = new System.Drawing.Point(13, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 14;
@@ -215,11 +221,43 @@ namespace Knihovna
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(384, 53);
+            this.label4.Location = new System.Drawing.Point(384, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 15;
             this.label4.Text = "heslo";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.odhlásitSeToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(779, 28);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // odhlásitSeToolStripMenuItem
+            // 
+            this.odhlásitSeToolStripMenuItem.Name = "odhlásitSeToolStripMenuItem";
+            this.odhlásitSeToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.odhlásitSeToolStripMenuItem.Text = "Odhlásit se";
+            this.odhlásitSeToolStripMenuItem.Click += new System.EventHandler(this.odhlasitSeToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // MainForm
             // 
@@ -242,10 +280,15 @@ namespace Knihovna
             this.Controls.Add(this.numYear);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Sprácovské okno";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +298,9 @@ namespace Knihovna
         private Label label2;
         private Label label3;
         private Label label4;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem odhlásitSeToolStripMenuItem;
+        private ToolStripMenuItem exitToolStripMenuItem;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

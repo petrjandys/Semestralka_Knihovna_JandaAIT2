@@ -76,5 +76,22 @@ namespace Knihovna
                 }
             }
         }
+
+        private void UserForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }       
+
+        private void zpetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm login = new LoginForm();
+            login.Show();
+            this.Hide();
+        }
     }
 }
