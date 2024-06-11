@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.2.0
+
+- přidán formulář pro zobrazení půjčených knih uživatelů v admin okně
+- přidáno úvodní okno po otevření aplikace
+- přidán Help do menu pro každé okno aplikace
+
 ## 2.1.1
 
 - opravena chyba, kdy se uživateli nezobrazovaly jejich půjčené knihy

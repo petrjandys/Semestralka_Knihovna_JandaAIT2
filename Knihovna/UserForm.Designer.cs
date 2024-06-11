@@ -28,8 +28,9 @@
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.odhlásitSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.změnitHesloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -37,22 +38,22 @@
             // 
             this.lstBooks.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lstBooks.FormattingEnabled = true;
-            this.lstBooks.ItemHeight = 23;
+            this.lstBooks.ItemHeight = 17;
             this.lstBooks.Location = new System.Drawing.Point(22, 58);
             this.lstBooks.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.lstBooks.Name = "lstBooks";
-            this.lstBooks.Size = new System.Drawing.Size(404, 234);
+            this.lstBooks.Size = new System.Drawing.Size(404, 225);
             this.lstBooks.TabIndex = 0;
             // 
             // lstLoans
             // 
             this.lstLoans.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lstLoans.FormattingEnabled = true;
-            this.lstLoans.ItemHeight = 23;
+            this.lstLoans.ItemHeight = 17;
             this.lstLoans.Location = new System.Drawing.Point(22, 312);
             this.lstLoans.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.lstLoans.Name = "lstLoans";
-            this.lstLoans.Size = new System.Drawing.Size(404, 234);
+            this.lstLoans.Size = new System.Drawing.Size(404, 225);
             this.lstLoans.TabIndex = 1;
             // 
             // btnLoanBook
@@ -91,37 +92,45 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.odhlásitSeToolStripMenuItem,
             this.změnitHesloToolStripMenuItem,
+            this.helpToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(642, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(642, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // odhlásitSeToolStripMenuItem
             // 
             this.odhlásitSeToolStripMenuItem.Name = "odhlásitSeToolStripMenuItem";
-            this.odhlásitSeToolStripMenuItem.Size = new System.Drawing.Size(96, 24);
+            this.odhlásitSeToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.odhlásitSeToolStripMenuItem.Text = "Odhlásit se";
             this.odhlásitSeToolStripMenuItem.Click += new System.EventHandler(this.zpetToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // změnitHesloToolStripMenuItem
             // 
             this.změnitHesloToolStripMenuItem.Name = "změnitHesloToolStripMenuItem";
-            this.změnitHesloToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.změnitHesloToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.změnitHesloToolStripMenuItem.Text = "Změnit heslo";
             this.změnitHesloToolStripMenuItem.Click += new System.EventHandler(this.zmenitHesloClick);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // UserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 576);
             this.Controls.Add(this.btnReturnBook);
@@ -142,5 +151,6 @@
         }
 
         private System.Windows.Forms.ToolStripMenuItem změnitHesloToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }

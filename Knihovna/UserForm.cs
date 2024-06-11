@@ -104,5 +104,11 @@ namespace Knihovna
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
             changePasswordForm.ShowDialog();            
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm("user");
+            helpForm.ShowDialog();
+        }
     }
 }

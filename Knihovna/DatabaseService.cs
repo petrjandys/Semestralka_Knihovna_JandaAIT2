@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SQLite;
+using System.Windows.Forms;
 
 namespace Knihovna
 {
@@ -61,6 +62,9 @@ namespace Knihovna
                             INSERT INTO Users (Username, Password, IsAdmin)
                             VALUES ('admin', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1)";
                         ExecuteNonQuery(insertAdminUser, connection);
+                        MessageBox.Show(@"Prvotní spuštění
+Defaultní účet: admin/admin
+");
                     }
                 }
             }

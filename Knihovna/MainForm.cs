@@ -154,5 +154,10 @@ namespace Knihovna
             borrowedBooksForm.ShowDialog();
         }
 
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm("admin");
+            helpForm.ShowDialog();
+        }
     }
 }
