@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2.1
+
+- opravena chyba způsobující pád aplikace při vrácení knihy
+
 ## 2.2.0
 
 - přidán formulář pro zobrazení půjčených knih uživatelů v admin okně

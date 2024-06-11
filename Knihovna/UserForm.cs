@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Knihovna
@@ -9,6 +10,8 @@ namespace Knihovna
         private DatabaseService databaseService;
         private Book book;
         private User user;
+        private List<Book> allBooks;
+        private List<Book> loanedBooks;
 
         public UserForm(int userId)
         {
@@ -17,6 +20,8 @@ namespace Knihovna
             this.databaseService = new DatabaseService();
             book = new Book();
             user = new User();
+            allBooks = new List<Book>();
+            loanedBooks = new List<Book>();
             LoadBooks();
             LoadLoans();
         }
@@ -41,7 +46,7 @@ namespace Knihovna
         {
             if (lstLoans.SelectedItem != null)
             {
-                Book selectedBook = (Book)lstLoans.SelectedItem;
+                Book selectedBook = loanedBooks[lstLoans.SelectedIndex];
                 book.ReturnBook(selectedBook.Id, userId);
                 LoadBooks();
                 LoadLoans();
@@ -56,8 +61,8 @@ namespace Knihovna
         private void LoadBooks()
         {
             lstBooks.Items.Clear();
-            var books = book.GetAllBooks();
-            foreach (var book in books)
+            allBooks = book.GetAllBooks();
+            foreach (var book in allBooks)
             {
                 if (!book.Borrowed)
                 {
@@ -69,10 +74,11 @@ namespace Knihovna
         private void LoadLoans()
         {
             lstLoans.Items.Clear();
-            var loans = user.GetLoansForUser(userId); 
-            foreach (var book in loans)
-            {                
-                lstLoans.Items.Add(book + " Vypůjčeno dne: " + book.LoanDate.ToShortDateString());
+            loanedBooks = user.GetLoansForUser(userId);
+            foreach (var book in loanedBooks)
+            {
+                string displayText = $"{book} Vypůjčeno dne: {book.LoanDate.ToShortDateString()}";
+                lstLoans.Items.Add(displayText);
             }
         }
 
@@ -84,7 +90,7 @@ namespace Knihovna
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }       
+        }
 
         private void zpetToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -92,7 +98,7 @@ namespace Knihovna
             login.Show();
             this.Hide();
         }
-       
+
         private void zmenitHeslo_click(object sender, EventArgs e)
         {
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
@@ -102,9 +108,8 @@ namespace Knihovna
         private void zmenitHesloClick(object sender, EventArgs e)
         {
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(userId);
-            changePasswordForm.ShowDialog();            
+            changePasswordForm.ShowDialog();
         }
-
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             HelpForm helpForm = new HelpForm("user");
