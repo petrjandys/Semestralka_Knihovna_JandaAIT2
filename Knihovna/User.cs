@@ -130,7 +130,11 @@ namespace Knihovna
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT * FROM Books WHERE Borrowed = 1 AND Id IN (SELECT BookId FROM Loans WHERE UserId = @UserId AND ReturnDate IS NULL)";
+                string query = @"
+            SELECT b.Id, b.Title, b.Author, b.Year, b.Borrowed, l.LoanDate
+            FROM Books b
+            JOIN Loans l ON b.Id = l.BookId
+            WHERE l.UserId = @UserId AND l.ReturnDate IS NULL";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@UserId", userId);
@@ -138,20 +142,24 @@ namespace Knihovna
                     {
                         while (reader.Read())
                         {
-                            loans.Add(new Book
+                            Book loanedBook = new Book
                             {
                                 Id = reader.GetInt32(reader.GetOrdinal("Id")),
                                 Title = reader.GetString(reader.GetOrdinal("Title")),
                                 Author = reader.GetString(reader.GetOrdinal("Author")),
                                 Year = reader.GetInt32(reader.GetOrdinal("Year")),
                                 Borrowed = reader.GetBoolean(reader.GetOrdinal("Borrowed"))
-                            });
+                            };
+
+                            loanedBook.LoanDate = DateTime.Parse(reader.GetString(reader.GetOrdinal("LoanDate")));
+                            loans.Add(loanedBook);
                         }
                     }
                 }
             }
             return loans;
         }
+
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();

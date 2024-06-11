@@ -13,10 +13,11 @@ namespace Knihovna
         public string Author { get; set; }
         public int Year { get; set; }
         public bool Borrowed { get; set; }
+        public DateTime LoanDate { get; set; }
 
         public override string ToString()
         {
-            return $"Titul: {Title}     Autor: {Author}    Rok vydání: {Year}";
+            return $"{Title} - {Author} ({Year})";
         }
         public void AddBook(string title, string author, int year)
         {

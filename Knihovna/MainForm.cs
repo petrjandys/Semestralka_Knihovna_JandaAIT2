@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Knihovna
@@ -91,7 +92,7 @@ namespace Knihovna
             var books = book.GetAllBooks();
             foreach (var book in books)
             {
-                string bookInfo = $"Kniha: {book.Title},    Autor: {book.Author},   Rok vydání: {book.Year}";
+                string bookInfo = book.ToString();
                 lstBooks.Items.Add(bookInfo);
             }
         }
@@ -102,7 +103,14 @@ namespace Knihovna
             var users = user.GetAllUsers();
             foreach (var user in users)
             {
-                string userInfo = $"Username: {user.Username}, je admin?: {user.IsAdmin}";
+                string osloveni;
+                if (user.IsAdmin)
+                {
+                    osloveni =  "administrator";
+                }
+                else { osloveni = "uživatel"; }
+
+                string userInfo = $"{osloveni}  {user.Username}";
                 lstUsers.Items.Add(userInfo);
             }
         }
@@ -129,6 +137,21 @@ namespace Knihovna
             int selectedUserId = selectedUser.Id;
             ChangePasswordForm changePasswordForm = new ChangePasswordForm(selectedUserId);
             changePasswordForm.ShowDialog();
+        }
+
+        private void lstUserDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lstUsers.SelectedItem == null)
+            {
+                return;
+            }
+
+            int selectedIndex = lstUsers.SelectedIndex;
+            User selectedUser = user.GetAllUsers()[selectedIndex];
+            List<Book> borrowedBooks = user.GetLoansForUser(selectedUser.Id);
+
+            UserBorrowedBooksForm borrowedBooksForm = new UserBorrowedBooksForm(borrowedBooks, selectedUser.Username);
+            borrowedBooksForm.ShowDialog();
         }
 
     }

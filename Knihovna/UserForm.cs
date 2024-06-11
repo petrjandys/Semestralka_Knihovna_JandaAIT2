@@ -71,8 +71,8 @@ namespace Knihovna
             lstLoans.Items.Clear();
             var loans = user.GetLoansForUser(userId); 
             foreach (var book in loans)
-            {
-                lstLoans.Items.Add(book);
+            {                
+                lstLoans.Items.Add(book + " Vypůjčeno dne: " + book.LoanDate.ToShortDateString());
             }
         }
 

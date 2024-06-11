@@ -218,6 +218,7 @@
             this.lstUsers.Name = "lstUsers";
             this.lstUsers.Size = new System.Drawing.Size(404, 142);
             this.lstUsers.TabIndex = 11;
+            this.lstUsers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstUserDoubleClick);
             // 
             // lblTitle
             // 
