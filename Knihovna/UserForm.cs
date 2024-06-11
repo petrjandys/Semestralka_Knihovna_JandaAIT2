@@ -8,6 +8,7 @@ namespace Knihovna
         private int userId;
         private DatabaseService databaseService;
         private Book book;
+        private User user;
 
         public UserForm(int userId)
         {
@@ -15,6 +16,7 @@ namespace Knihovna
             this.userId = userId;
             this.databaseService = new DatabaseService();
             book = new Book();
+            user = new User();
             LoadBooks();
             LoadLoans();
         }
@@ -67,13 +69,10 @@ namespace Knihovna
         private void LoadLoans()
         {
             lstLoans.Items.Clear();
-            var loans = book.GetAllBooks();
+            var loans = user.GetLoansForUser(userId); 
             foreach (var book in loans)
             {
-                if (book.Borrowed)
-                {
-                    lstLoans.Items.Add(book);
-                }
+                lstLoans.Items.Add(book);
             }
         }
 

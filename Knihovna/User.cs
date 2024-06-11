@@ -124,6 +124,34 @@ namespace Knihovna
             }
             return username;
         }
+        public List<Book> GetLoansForUser(int userId)
+        {
+            List<Book> loans = new List<Book>();
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM Books WHERE Borrowed = 1 AND Id IN (SELECT BookId FROM Loans WHERE UserId = @UserId AND ReturnDate IS NULL)";
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            loans.Add(new Book
+                            {
+                                Id = reader.GetInt32(reader.GetOrdinal("Id")),
+                                Title = reader.GetString(reader.GetOrdinal("Title")),
+                                Author = reader.GetString(reader.GetOrdinal("Author")),
+                                Year = reader.GetInt32(reader.GetOrdinal("Year")),
+                                Borrowed = reader.GetBoolean(reader.GetOrdinal("Borrowed"))
+                            });
+                        }
+                    }
+                }
+            }
+            return loans;
+        }
         public List<User> GetAllUsers()
         {
             List<User> users = new List<User>();

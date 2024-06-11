@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.1.1
+
+- opravena chyba, kdy se uživateli nezobrazovaly jejich půjčené knihy
+
 ## 2.1.0
 
 - designové úpravy
