@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Knihovna
 {
@@ -12,7 +13,7 @@ namespace Knihovna
 
         public int Id { get; set; }
         public string Username { get; set; }
-        public bool IsAdmin { get; set; }       
+        public bool IsAdmin { get; set; }
 
         public void AddUser(string username, string password, bool isAdmin)
         {
@@ -97,14 +98,37 @@ namespace Knihovna
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string query = "DELETE FROM Users WHERE Id = @Id";
-                using (var command = new SQLiteCommand(query, connection))
+                
+                string roleQuery = "SELECT IsAdmin FROM Users WHERE Id = @Id";
+                using (var roleCommand = new SQLiteCommand(roleQuery, connection))
+                {
+                    roleCommand.Parameters.AddWithValue("@Id", userId);
+                    var result = roleCommand.ExecuteScalar();
+                    if (result != null && Convert.ToBoolean(result))                    {
+                        
+                        string countQuery = "SELECT COUNT(*) FROM Users WHERE IsAdmin = 1";
+                        using (var countCommand = new SQLiteCommand(countQuery, connection))
+                        {
+                            int adminCount = Convert.ToInt32(countCommand.ExecuteScalar());
+                            if (adminCount <= 1)
+                            {
+                                MessageBox.Show("Nelze vymazat posledního aministrátora!", "Pozor", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
+                }
+                
+                string deleteQuery = "DELETE FROM Users WHERE Id = @Id";
+                using (var command = new SQLiteCommand(deleteQuery, connection))
                 {
                     command.Parameters.AddWithValue("@Id", userId);
                     command.ExecuteNonQuery();
+                    MessageBox.Show("Uživatel vymazán!", "Vymazání", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
+
         public string GetUserNameById(int userId)
         {
             string username = "";
@@ -124,6 +148,7 @@ namespace Knihovna
             }
             return username;
         }
+
         public List<Book> GetLoansForUser(int userId)
         {
             List<Book> loans = new List<Book>();
@@ -131,10 +156,10 @@ namespace Knihovna
             {
                 connection.Open();
                 string query = @"
-            SELECT b.Id, b.Title, b.Author, b.Year, b.Borrowed, l.LoanDate
-            FROM Books b
-            JOIN Loans l ON b.Id = l.BookId
-            WHERE l.UserId = @UserId AND l.ReturnDate IS NULL";
+                    SELECT b.Id, b.Title, b.Author, b.Year, b.Borrowed, l.LoanDate
+                    FROM Books b
+                    JOIN Loans l ON b.Id = l.BookId
+                    WHERE l.UserId = @UserId AND l.ReturnDate IS NULL";
                 using (var command = new SQLiteCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@UserId", userId);
@@ -185,6 +210,5 @@ namespace Knihovna
             }
             return users;
         }
-        
     }
 }
